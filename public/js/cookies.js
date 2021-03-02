@@ -59,3 +59,22 @@ function getCookieValue(name) {
   return null;
 
 }
+
+function deleteCookie(name){
+  let cookieArray = getCookies();
+
+  for (let i = 0; i < cookieArray.length; i++) {
+    let ele = cookieArray[i];
+
+    let keyValueArray = ele.split("="); //makes an array
+
+    let key = keyValueArray[0];
+    let value = keyValueArray[1];
+    if (key === name) {
+      document.cookie = `${name}=; expires = Thu, 01 Jan 1970 00:00:00GMT`;
+      return; 
+    }
+  }
+  return "cookie wasn't found";
+
+}
