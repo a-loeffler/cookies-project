@@ -72,9 +72,14 @@ function deleteCookie(name){
     let value = keyValueArray[1];
     if (key === name) {
       document.cookie = `${name}=; expires = Thu, 01 Jan 1970 00:00:00GMT`;
-      return; 
+      return;
     }
   }
   return "cookie wasn't found";
-
 }
+
+setCookie("random", Math.floor(Math.random() * (1000 - 500 + 1) + 500))
+
+const newWindow = window.open("https://www.google.com", "Google", "width=100, height=100")
+// // resize the new window
+newWindow.resizeTo(getCookieValue("random"), getCookieValue("random"));
